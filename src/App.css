@@ -1,0 +1,23 @@
+.navBox {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.heroBox {
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-top: 70px;
+}
+
+.heroBox::-webkit-scrollbar {
+  width: 8px;
+}
+
+.heroBox::-webkit-scrollbar-thumb {
+  background: rgba(145, 162, 145, 0.4);
+  border-radius: 100px;
+}

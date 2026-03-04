@@ -1,0 +1,32 @@
+#skill {
+  padding: 5rem;
+  background: #000;
+}
+
+#skill h1 {
+  margin: 0 0 3rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  #skill {
+    padding: 4rem 1.1rem 3rem;
+  }
+
+  #skill h1 {
+    margin-bottom: 2rem;
+  }
+}
+
