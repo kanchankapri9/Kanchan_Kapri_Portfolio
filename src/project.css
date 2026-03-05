@@ -37,11 +37,12 @@
 }
 
 .card {
-  border-radius: 1rem;
+  position: relative;
+  border-radius: 1.35rem;
   overflow: hidden;
-  border: 1px solid var(--border-soft);
+  border: 1px solid rgba(145, 162, 145, 0.22);
   background: linear-gradient(180deg, rgba(13, 13, 13, 0.95), rgba(7, 7, 7, 0.95));
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   /* Entry animation for project cards:
      cards fade/slide up on first render to avoid a static load feel. */
@@ -68,8 +69,8 @@
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(145, 162, 145, 0.55);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
+  border-color: rgba(145, 162, 145, 0.42);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42), inset 0 0 0 1px rgba(220, 230, 220, 0.08);
 }
 
 /* Card reveal keyframes:

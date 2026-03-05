@@ -4,7 +4,7 @@ import Button from "./button";
 function Skill() {
   return (
     <div id="skill">
-      <h1>Skills</h1>
+      <h1 className="lemon-title">Skills</h1>
 
       {/* Skill chips are intentionally simple and reusable */}
       <div className="skill-grid">

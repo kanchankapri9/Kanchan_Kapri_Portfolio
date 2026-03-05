@@ -14,7 +14,7 @@ function About() {
   return (
     <section className="information" id="about">
       <div className="about">
-        <h2>About Me</h2>
+        <h2 className="lemon-title">About Me</h2>
 
         <div className="profile">
           <div className="imgCircle">
@@ -83,7 +83,7 @@ function About() {
       </div>
 
       <div className="contact" id="contact">
-        <h2>Contact Me</h2>
+        <h2 className="lemon-title">Contact Me</h2>
 
         {state.succeeded ? (
           <p className="form-success">
@@ -161,4 +161,3 @@ function About() {
 }
 
 export default About;
-
