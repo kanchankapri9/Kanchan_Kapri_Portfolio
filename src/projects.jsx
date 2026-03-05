@@ -8,7 +8,7 @@ const projectsData = [
     title: "AI Notes Assistant",
     description:
       "Built an AI-powered notes assistant for summarization, concept explanation, and quick revision workflows for students.",
-    demoLink: "",
+    demoLink: "https://ai-notes-assistant-i47e.onrender.com/",
     codeLink: "https://github.com/kanchankapri9",
   },
   {
