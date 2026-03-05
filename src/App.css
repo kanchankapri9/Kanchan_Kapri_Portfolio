@@ -11,6 +11,14 @@
   overflow-y: auto;
   scroll-behavior: smooth;
   padding-top: 70px;
+  scroll-padding-top: 36px;
+}
+
+#about,
+#skill,
+#project,
+#contact {
+  scroll-margin-top: 36px;
 }
 
 .heroBox::-webkit-scrollbar {

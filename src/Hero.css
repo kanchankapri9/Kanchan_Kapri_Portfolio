@@ -1,5 +1,5 @@
 #hero {
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.56);
   display: flex;
   min-height: 100vh;
   width: 100%;

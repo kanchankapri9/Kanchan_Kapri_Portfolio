@@ -4,7 +4,7 @@ import { useForm, ValidationError } from "@formspree/react";
 function About() {
   const [state, handleSubmit] = useForm("mbdanqdq");
   const profileLinks = {
-    email: "https://www.youtube.com/@Codinggirl-no1",
+    youtube: "https://www.youtube.com/@Codinggirl-no1",
     github: "https://github.com/kanchankapri9",
     linkedin: "https://www.linkedin.com/in/kanchan-kapri/",
     location:
@@ -38,9 +38,18 @@ function About() {
               <img src="/education.png" alt="Education" />
               <span>BCA (DS & AI)</span>
             </div>
-            <a className="status-item" href={profileLinks.email} target="_blank" rel="noreferrer">
+            <div className="status-item">
               <img src="/email.png" alt="Email" />
               <span>kaprikanchan09@gmail.com</span>
+            </div>
+            <a
+              className="status-item"
+              href={profileLinks.youtube}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/youtube.svg" alt="YouTube" />
+              <span>YouTube Channel</span>
             </a>
             <a
               className="status-item"
@@ -152,5 +161,4 @@ function About() {
 }
 
 export default About;
-
 

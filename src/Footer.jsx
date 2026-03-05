@@ -45,8 +45,8 @@ function Footer() {
         <div className="footer-bottom">
           <div className="social-row">
             <a
-              className="social-icon"
-              href="https://instagram.com"
+              className="social-icon social-icon-instagram"
+              href="https://www.instagram.com/kanchan_kapri_1/"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -59,8 +59,8 @@ function Footer() {
               </svg>
             </a>
             <a
-              className="social-icon"
-              href="https://facebook.com"
+              className="social-icon social-icon-facebook"
+              href="https://www.facebook.com/share/1CPEAcokhG/"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
@@ -71,8 +71,8 @@ function Footer() {
               </svg>
             </a>
             <a
-              className="social-icon"
-              href="https://youtube.com"
+              className="social-icon social-icon-youtube"
+              href="https://www.youtube.com/@Codinggirl-no1"
               target="_blank"
               rel="noreferrer"
               aria-label="YouTube"

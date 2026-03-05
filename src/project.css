@@ -1,22 +1,36 @@
 #project {
-  padding: 5rem clamp(1.1rem, 4vw, 2.8rem);
-  background:
-    radial-gradient(circle at 12% 12%, rgba(145, 162, 145, 0.1), transparent 38%),
-    linear-gradient(to bottom, #000, #060806 42%, #000);
+  padding: 4.8rem clamp(1.1rem, 6vw, 8%) 3.2rem;
+  background: radial-gradient(circle at top, rgba(145, 162, 145, 0.08), transparent 42%), rgba(0, 0, 0, 0.56);
 }
 
 #project h1 {
-  margin: 0;
-  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  position: relative;
   color: var(--accent);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+#project h1::after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  background: var(--accent);
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+#project h1:hover::after {
+  width: 100%;
 }
 
 .cardcontainer {
   width: 100%;
   max-width: 1120px;
-  margin: 2.3rem auto 0;
+  margin: 2.5rem auto 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.35rem;
@@ -29,6 +43,27 @@
   background: linear-gradient(180deg, rgba(13, 13, 13, 0.95), rgba(7, 7, 7, 0.95));
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  /* Entry animation for project cards:
+     cards fade/slide up on first render to avoid a static load feel. */
+  opacity: 0;
+  animation: cardReveal 0.7s ease forwards;
+}
+
+/* Stagger timings so cards appear one after another. */
+.cardcontainer .card:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.cardcontainer .card:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.cardcontainer .card:nth-child(3) {
+  animation-delay: 0.28s;
+}
+
+.cardcontainer .card:nth-child(4) {
+  animation-delay: 0.38s;
 }
 
 .card:hover {
@@ -37,14 +72,35 @@
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
 }
 
+/* Card reveal keyframes:
+   starts slightly lower + transparent, ends at normal position + fully visible. */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
   #project {
-    padding: 4.1rem 1.1rem 3rem;
+    padding: 4rem 1.1rem 2.8rem;
   }
 
   .cardcontainer {
     margin-top: 1.8rem;
     gap: 1rem;
     grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility: disable non-essential motion when user prefers reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+    animation: none;
   }
 }

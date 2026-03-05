@@ -19,14 +19,79 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--bg-main);
+  background-color: #030303;
   color: var(--text-main);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: -12px;
+  background-image: url("/Background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px);
+  transform: scale(1.02);
+  z-index: -2;
+  /* Slow pan + zoom on background layer. This animates only the image layer,
+     so text/content stays sharp because they are rendered above this pseudo-element. */
+  animation: bgDrift 22s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  /* Gentle dark-overlay pulse to add depth while preserving text readability. */
+  animation: overlayPulse 12s ease-in-out infinite;
+}
+
 #root {
   height: 100dvh;
+  position: relative;
+  z-index: 0;
+}
+
+/* Background movement keyframes:
+   slightly shifts X/Y and scale to create a cinematic living background. */
+@keyframes bgDrift {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate3d(-0.8%, -0.6%, 0);
+  }
+  100% {
+    transform: scale(1.03) translate3d(0.7%, 0.5%, 0);
+  }
+}
+
+/* Overlay pulse keyframes:
+   very small opacity change so it feels alive but not distracting. */
+@keyframes overlayPulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.92;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Accessibility: reduce motion for users who prefer minimal animation. */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
 }

@@ -205,3 +205,210 @@ This file documents what was fixed, why it was fixed, where it was changed, and 
   - linkedin
   - location
 - Add project Demo/Code URLs in `src/projects.jsx` when ready.
+
+## 13) Recent Changes Added (Menu, Background, Animation)
+
+### 13.1 Mobile Hamburger Menu Close Behavior
+
+#### What was fixed
+- Mobile menu now closes when tapping/clicking outside navbar.
+- Menu also closes on `Esc` key.
+- Existing close-on-nav-link-click behavior remains.
+
+#### Why
+- Earlier, menu felt stuck because it mostly depended on clicking hamburger again.
+- Outside-click close is expected mobile UX behavior.
+
+#### Where
+- `src/Navbar.jsx`
+
+#### Steps used
+1. Added `useRef` for navbar wrapper (`navRef`).
+2. Added `useEffect` that runs when menu is open.
+3. Registered `pointerdown` listener on `document`.
+4. If click target is outside `navRef`, set `isOpen` to `false`.
+5. Added `keydown` listener for `Escape`.
+6. Cleaned up listeners on unmount/menu close.
+
+#### Learning
+- Outside-click detection should use a container ref + document listener.
+- Always remove event listeners in cleanup to avoid leaks/duplicate handlers.
+
+### 13.2 Global Background Image with Safe Blur (Text stays clear)
+
+#### What was fixed
+- Added `public/Background.png` as site-wide background.
+- Blur is applied only to the background layer (not text/content).
+- Added dark overlay for consistent contrast and readability.
+- Section backgrounds switched to semi-transparent to let background show through.
+
+#### Why
+- Needed visual depth with a real background image while keeping text readable.
+
+#### Where
+- `src/index.css`
+- `src/Hero.css`
+- `src/about.css`
+- `src/project.css`
+- `src/Skill.css`
+- `src/Footer.css`
+
+#### Steps used
+1. Added `body::before` fixed layer with `background-image: url("/Background.png")`.
+2. Applied mild blur (`filter: blur(3px)`) and slight scale for edge coverage.
+3. Added `body::after` dark overlay (`rgba(0,0,0,0.5)`).
+4. Kept app content above with `#root` positioning.
+5. Reduced full-black section backgrounds to translucent dark values.
+
+#### Learning
+- Blurring the main container can blur text; pseudo-element layers avoid that.
+- A dark overlay is essential when foreground text sits above photo backgrounds.
+
+### 13.3 Subtle Animation Polish + Inline Documentation
+
+#### What was fixed
+- Animated background drift/zoom for cinematic motion.
+- Added soft overlay pulse.
+- Added staggered project-card reveal on load.
+- Added gentle floating motion to skill chips.
+- Added inline comments near every animation block explaining what/how.
+- Added reduced-motion accessibility fallbacks.
+
+#### Why
+- To make the UI feel alive without hurting readability or performance.
+
+#### Where
+- `src/index.css`
+- `src/project.css`
+- `src/Skill.css`
+
+#### Steps used
+1. Added `@keyframes bgDrift` and applied to `body::before`.
+2. Added `@keyframes overlayPulse` and applied to `body::after`.
+3. Added `@keyframes cardReveal` to `.card` with staggered `nth-child` delays.
+4. Added `@keyframes skillFloat` for `#skill .app-button`.
+5. Added `@media (prefers-reduced-motion: reduce)` to disable non-essential motion.
+6. Wrote comments next to each animation block for maintainability.
+
+#### Learning
+- Subtle, slow motion is better than aggressive effects for portfolio readability.
+- Staggered reveal creates polish with minimal code.
+- Respecting reduced-motion improves accessibility and professionalism.
+
+## 14) Latest UX Tweaks (Anchor Spacing + Footer Social Links)
+
+### 14.1 Section Title Congestion Fix from Hamburger Navigation
+
+#### What was fixed
+- Adjusted anchor landing offset when navigating from mobile hamburger menu.
+- Final offset is now tighter after multiple iterations based on visual feedback.
+
+#### Why
+- Section titles were appearing too low/high relative to fixed navbar.
+- Needed exact visual fit, not a one-shot guess.
+
+#### Where
+- `src/App.css`
+
+#### Steps used
+1. Added section-target scroll offset controls:
+   - `scroll-padding-top` on `.heroBox`
+   - `scroll-margin-top` on `#about`, `#skill`, `#project`, `#contact`
+2. Iteratively reduced values in small steps until the spacing looked balanced.
+3. Finalized the offset at `36px` as requested.
+
+#### What this means
+- Clicking a nav item (especially from hamburger menu) now scrolls to a cleaner section start.
+- Titles are less congested and better aligned with the fixed navbar.
+
+#### Learning
+- Anchor positioning with fixed headers is highly visual and usually needs iteration.
+- `scroll-margin-top` is the most reliable CSS-native way to offset section anchors.
+
+### 14.2 Footer Social Links Finalized
+
+#### What was fixed
+- Replaced placeholder social URLs with your real profiles:
+  - Instagram
+  - Facebook
+  - YouTube
+
+#### Why
+- Footer icons should directly open your real public profiles for recruiters/users.
+
+#### Where
+- `src/Footer.jsx`
+
+#### Steps used
+1. Located social icon anchor tags in footer.
+2. Replaced placeholder URLs with provided links.
+3. Preserved safe external-link behavior (`target="_blank"`, `rel="noreferrer"`).
+
+#### What this means
+- Footer social buttons are now production-ready and usable.
+
+#### Learning
+- Placeholder links are fine during development, but final portfolio should always map icons to real identities.
+
+### 14.3 Footer Social Icon Visual Tuning (Color + Size Iterations)
+
+#### What was fixed
+- Made footer social icons colorful per platform:
+  - Instagram gradient
+  - Facebook blue
+  - YouTube red
+- Increased icon size first, then reduced step-by-step based on your visual preference.
+- Final tuned size is compact and balanced.
+
+#### Why
+- Needed a colorful, modern footer look without overpowering the section.
+- Iterative size tuning helped find the right visual weight.
+
+#### Where
+- `src/Footer.jsx`
+- `src/Footer.css`
+
+#### Steps used
+1. Added platform-specific classes in JSX:
+   - `social-icon-instagram`
+   - `social-icon-facebook`
+   - `social-icon-youtube`
+2. Added platform-specific color/gradient backgrounds in CSS.
+3. Increased base icon dimensions for stronger visibility.
+4. Reduced dimensions in multiple small steps until visual balance was achieved.
+5. Kept hover lift/glow and tap-friendly circular shape.
+
+#### Final result values
+- `.social-icon`: `34px x 34px`
+- `.social-icon svg`: `16px x 16px`
+- `.social-row` gap: `0.5rem`
+
+#### What this means
+- Icons look branded and clickable, but no longer dominate the footer layout.
+
+#### Learning
+- UI sizing is often preference-driven; controlled iteration (small deltas) is faster than large jumps.
+- Platform colors improve recognizability with minimal extra code.
+
+### 14.4 Anchor Offset Fine-Tuning Summary
+
+#### What was fixed
+- Repeatedly reduced section anchor offset to match your exact expected top spacing.
+
+#### Why
+- Initial offset felt too large after hamburger navigation.
+
+#### Where
+- `src/App.css`
+
+#### Steps used
+1. Started with larger offset values.
+2. Reduced in small increments after each review.
+3. Finalized at tighter value.
+
+#### Final result values
+- `.heroBox`: `scroll-padding-top: 36px`
+- `#about`, `#skill`, `#project`, `#contact`: `scroll-margin-top: 36px`
+
+#### Learning
+- For fixed nav layouts, anchor offset usually requires iterative visual calibration on actual device viewport.
