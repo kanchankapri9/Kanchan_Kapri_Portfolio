@@ -11,20 +11,8 @@ function Hero() {
         </div>
 
         <div className="buttons">
-          <Button
-            name="Hire Me"
-            classN="hero-btn"
-            href="/Kanchan_Kapri_Resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-          />
-          <Button
-            name="Projects"
-            classN="hero-btn"
-            href="https://github.com/kanchankapri9"
-            target="_blank"
-            rel="noreferrer"
-          />
+          <Button name="Hire Me"  classN="hero-btn" />
+          <Button name="Projects" classN="hero-btn" />
         </div>
       </div>
 
@@ -40,3 +28,4 @@ function Hero() {
 }
 
 export default Hero; // export the component to use in other files
+

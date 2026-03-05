@@ -16,7 +16,6 @@ function Navbar() {
         <div className="brand">
           <p>Kanchan Kapri</p>
         </div>
-
         {/* Hamburger Icon */}
         <div className="hamburger" onClick={toggleMenu}>
           <span className="bar"></span>

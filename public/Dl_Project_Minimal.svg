@@ -10,4 +10,8 @@
     <circle cx="940" cy="470" r="8" fill="#374151"/>
     <path d="M250 470 L350 410 L450 450 L520 545 L640 505 L730 420 L860 440 L940 470" stroke="#111111" stroke-width="2.5" opacity="0.45"/>
   </g>
+<<<<<<< HEAD
 </svg>
+=======
+</svg>
+>>>>>>> 14caa5706c03f28c900886c03cebc18a8c59dc46

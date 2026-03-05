@@ -9,20 +9,22 @@ function Card({ imgSrc, title, description, DemoLink, CodeLink }) {
       <div className="descriptionbox">
         <h2 className="card-title">{title}</h2>
         <p className="card-description">{description}</p>
-        {DemoLink ? (
-          <a href={DemoLink} className="btn" target="_blank" rel="noreferrer">
-            Demo
-          </a>
-        ) : (
-          <span className="btn btn-placeholder">Demo</span>
-        )}
-        {CodeLink ? (
-          <a href={CodeLink} className="btn" target="_blank" rel="noreferrer">
-            Code
-          </a>
-        ) : (
-          <span className="btn btn-placeholder">Code</span>
-        )}
+        <div className="card-actions">
+          {DemoLink ? (
+            <a href={DemoLink} className="btn" target="_blank" rel="noreferrer">
+              Live Demo
+            </a>
+          ) : (
+            <span className="btn btn-placeholder">Live Demo</span>
+          )}
+          {CodeLink ? (
+            <a href={CodeLink} className="btn" target="_blank" rel="noreferrer">
+              Source Code
+            </a>
+          ) : (
+            <span className="btn btn-placeholder">Source Code</span>
+          )}
+        </div>
       </div>
     </div>
   );
