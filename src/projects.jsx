@@ -7,7 +7,7 @@ const projectsData = [
     imgSrc: "/Ai_Notes_Assistant.jpeg",
     title: "AI Notes Assistant",
     description:
-      "Built an AI-powered notes assistant for summarization, concept explanation, and quick revision workflows for students.",
+      "Built a notes assistant for Notes Specific Web-app customized Notes and quick revision Notes for students.",
     demoLink: "https://ai-notes-assistant-i47e.onrender.com/",
     codeLink: "https://github.com/kanchankapri9",
   },
