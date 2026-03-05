@@ -1,0 +1,52 @@
+#project {
+    padding: 5rem 2.5rem;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#project h1 {
+    margin-bottom: 1.6rem;
+    text-align: center;
+}
+
+.card {
+    width: 16rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: black;
+    transition: transform 0.3s ease;
+    flex: 0 0 auto;
+}
+
+.card:hover {
+    transform: scale(0.97);
+}
+
+.cardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.5rem 0.35rem 1rem;
+}
+
+@media (max-width: 768px) {
+    #project {
+        padding: 4.2rem 1.1rem 3rem;
+    }
+
+    .card {
+        width: min(100%, 18rem);
+    }
+
+    .cardcontainer {
+        padding: 0.35rem 0 0.75rem;
+    }
+}

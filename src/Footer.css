@@ -1,0 +1,168 @@
+#footer {
+  padding: 2.4rem 1rem 1.9rem;
+  background: #000;
+  border-top: 1px solid rgba(145, 162, 145, 0.25);
+}
+
+.footer-wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.95rem;
+  text-align: center;
+  padding: 1.35rem 1.15rem;
+  border: 1px solid rgba(145, 162, 145, 0.26);
+  border-radius: 1.2rem;
+  background: radial-gradient(circle at top, rgba(195, 255, 166, 0.12), rgba(145, 162, 145, 0.04) 35%, rgba(0, 0, 0, 0.8));
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+.tea-badge {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(190, 216, 170, 0.4);
+}
+
+.tea-badge svg {
+  width: 58px;
+  height: 58px;
+}
+
+.tea-bg {
+  fill: #1f2a1f;
+}
+
+.tea-lemon {
+  fill: #f5de7a;
+  stroke: #1d1d1d;
+  stroke-width: 1.3;
+}
+
+.tea-cut {
+  stroke: #1d1d1d;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.tea-steam {
+  fill: none;
+  stroke: #eaf8de;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.tea-line {
+  stroke: #e7f4dc;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid rgba(145, 162, 145, 0.5);
+  background: rgba(145, 162, 145, 0.12);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.social-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--accent-strong);
+  stroke-width: 1.7;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  background: rgba(145, 162, 145, 0.32);
+}
+
+.footer-note {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.pay-motivation {
+  margin: 0 0 0.65rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.payment-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.pay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--accent-strong);
+  border: 1px solid rgba(145, 162, 145, 0.55);
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(145, 162, 145, 0.18),
+    rgba(217, 255, 162, 0.22)
+  );
+  padding: 0.6rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pay-btn:hover {
+  background: var(--accent);
+  color: #0b0f0b;
+}
+
+.footer-bottom {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(145, 162, 145, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 640px) {
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

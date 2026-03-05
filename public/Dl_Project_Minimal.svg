@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Minimal AI line art">
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 580 C260 420, 420 680, 560 520 S860 360, 1080 500" stroke="#111111" stroke-width="6" opacity="0.9"/>
+    <path d="M160 420 C300 280, 430 520, 600 360 S910 220, 1060 340" stroke="#1f2937" stroke-width="4" opacity="0.75"/>
+    <path d="M140 300 C280 190, 460 360, 620 230 S890 130, 1040 210" stroke="#4b5563" stroke-width="3" opacity="0.65"/>
+    <circle cx="260" cy="470" r="10" fill="#111111"/>
+    <circle cx="520" cy="545" r="8" fill="#1f2937"/>
+    <circle cx="730" cy="420" r="9" fill="#111111"/>
+    <circle cx="940" cy="470" r="8" fill="#374151"/>
+    <path d="M250 470 L350 410 L450 450 L520 545 L640 505 L730 420 L860 440 L940 470" stroke="#111111" stroke-width="2.5" opacity="0.45"/>
+  </g>
+</svg>
