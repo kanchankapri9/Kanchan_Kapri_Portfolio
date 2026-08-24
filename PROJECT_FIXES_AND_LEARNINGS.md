@@ -2,20 +2,6 @@
 
 This file documents what was fixed, why it was fixed, where it was changed, and what was learned during the full portfolio update process.
 
-## 1) Profile and Identity Updates
-
-### What was fixed
-- Name changed to **Kanchan Kapri**.
-- Intro/title text updated for BCA (DS & AI), Sigma 8.0, full-stack + DSA + ML/DL direction.
-- About bio rewritten for current student profile.
-
-### Why
-- To align the portfolio with your real identity, education, and current career direction.
-
-### Where
-- `src/Hero.jsx`
-- `src/About.jsx`
-- `src/Navbar.jsx`
 
 ## 2) Profile Photo and Fit Adjustments
 
@@ -37,17 +23,7 @@ This file documents what was fixed, why it was fixed, where it was changed, and 
 - `src/Hero.css`
 - `src/about.css`
 
-## 3) Skills Upgrade (FAANG-fit direction)
 
-### What was fixed
-- Replaced old BI/commerce-centric skill chips with stronger interview-focused stack:
-  - DSA, Problem Solving, Java, Python, JavaScript, React, Node, Express, MongoDB, SQL, ML, Deep Learning
-
-### Why
-- To better represent software-engineering and ML pathways suitable for top product companies.
-
-### Where
-- `src/Skill.jsx`
 
 ## 4) Projects Data and Project Media Mapping
 

@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 
+
+
+// the logic for the hamburger menu is implemented in this component. It uses useState to manage the open/close state of the menu, and useEffect to handle clicks outside the menu and the Escape key to close it. The menu items are rendered as a list, and clicking on any item will close the menu.
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);

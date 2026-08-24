@@ -2,7 +2,7 @@ import "./project.css";
 import Card from "./Card";
 
 const projectsData = [
-  // Replace these with per-project repository URLs when available.
+  
   {
     imgSrc: "/Ai_Notes_Assistant.jpeg",
     title: "AI Notes Assistant",
