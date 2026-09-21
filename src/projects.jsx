@@ -2,7 +2,7 @@ import "./project.css";
 import Card from "./Card";
 
 const projectsData = [
-  
+
   {
     imgSrc: "/Ai_Notes_Assistant.jpeg",
     title: "AI Notes Assistant",
@@ -35,6 +35,27 @@ const projectsData = [
     demoLink: "",
     codeLink: "https://github.com/kanchankapri9",
   },
+
+
+  {
+    imgSrc: "/theWomaniaStore.png",
+    title: "TheWomaniaStore",
+    description:
+      "Built a ecommerce web-app for women with product catalog, cart, authentication, and order management.",
+    demoLink: "https://the-womania-store-k12n.onrender.com/",
+    codeLink: "https://github.com/kanchankapri9/TheWomaniaStore",
+  },
+
+
+  {
+    imgSrc: "/MiniKashmirDairies.png",
+    title: "MiniKashmirDairies",
+    description:
+      "Built a Hotel listing web-app for  with locations specifically in uttarkhand and pricing to search hotel in the uttarkhand.",
+    demoLink: "https://mini-kashmir-dairies-1p5q.onrender.com/",
+    codeLink: "https://github.com/kanchankapri9/MiniKashmirDairies",
+  },
+
 ];
 
 function Projects() {
