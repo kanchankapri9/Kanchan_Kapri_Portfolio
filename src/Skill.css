@@ -1,73 +1,101 @@
+/* ==========================================================================
+   SKILLS SECTION STYLES
+   Clean Categorized Papercraft Cards & Smooth Interactive Pills
+   ========================================================================== */
+
 #skill {
-  padding: 4.8rem clamp(1.1rem, 6vw, 8%) 3.2rem;
-  background: radial-gradient(circle at top, rgba(145, 162, 145, 0.08), transparent 42%), rgba(0, 0, 0, 0.56);
-}
-
-#skill h1 {
-  margin: 0 auto;
-  width: fit-content;
+  padding: 5rem clamp(1.25rem, 5vw, 3.5rem) 4rem;
+  background: transparent;
   position: relative;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
-#skill h1::after {
-  content: "";
-  width: 50%;
-  height: 3px;
-  background: var(--accent);
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  transition: width 0.3s ease;
+.skill-container {
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-#skill h1:hover::after {
-  width: 100%;
+.skill-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
 }
 
-.skill-grid {
+/* Category Card with Tactile Paper Carve */
+.skill-category-card {
+  padding: 1.85rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-carve), 0 8px 24px -6px rgba(20, 32, 23, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.98);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(37, 61, 41, 0.16);
+}
+
+.category-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--porsche-green-deep);
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(37, 61, 41, 0.08);
+}
+
+/* Skill Chips */
+.skill-chips-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  max-width: 920px;
-  margin: 2.5rem auto 0;
+  gap: 0.65rem;
 }
 
-/* Skill chip motion:
-   adds a tiny floating movement so the section feels alive without harming readability. */
-#skill .app-button {
-  animation: skillFloat 4s ease-in-out infinite;
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(247, 250, 247, 0.95);
+  border: 1px solid rgba(37, 61, 41, 0.1);
+  color: var(--text-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+  user-select: none;
 }
 
-/* Offset timing for neighboring chips to avoid perfectly synchronized movement. */
-#skill .app-button:nth-child(even) {
-  animation-delay: 0.9s;
+.skill-chip:hover {
+  background: #ffffff;
+  border-color: var(--porsche-green);
+  color: var(--porsche-green-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 32, 23, 0.08);
 }
 
-/* Float keyframes:
-   moves chips up by a few pixels and back for a subtle breathing effect. */
-@keyframes skillFloat {
-  0%,
-  100% {
-    transform: translateY(0);
+/* Tablet & Mobile Responsiveness */
+@media (max-width: 968px) {
+  .skill-categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
-  50% {
-    transform: translateY(-4px);
-  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   #skill {
-    padding: 4rem 1.1rem 2.8rem;
+    padding: 3.5rem 1rem 2.5rem;
   }
-}
 
-/* Accessibility: respect reduced-motion preference. */
-@media (prefers-reduced-motion: reduce) {
-  #skill .app-button {
-    animation: none;
+  .skill-category-card {
+    padding: 1.4rem 1.2rem;
   }
 }

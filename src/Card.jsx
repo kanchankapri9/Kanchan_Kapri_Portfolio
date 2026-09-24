@@ -1,28 +1,39 @@
 import "./card.css";
 
-function Card({ imgSrc, title, description, DemoLink, CodeLink }) {
+function Card({ imgSrc, title, tag, description, DemoLink, CodeLink }) {
   return (
-    <div className="card">
+    <div className="card paper-carve">
       <div className="img">
-        <img src={imgSrc} alt={title} />
+        <img src={imgSrc} alt={title} loading="lazy" />
+        {tag && <span className="card-tag">{tag}</span>}
       </div>
       <div className="descriptionbox">
-        <h2 className="card-title">{title}</h2>
+        <h3 className="card-title">{title}</h3>
         <p className="card-description">{description}</p>
         <div className="card-actions">
           {DemoLink ? (
-            <a href={DemoLink} className="btn" target="_blank" rel="noreferrer">
+            <a
+              href={DemoLink}
+              className="card-btn btn-demo"
+              target="_blank"
+              rel="noreferrer"
+            >
               Live Demo
             </a>
           ) : (
-            <span className="btn btn-placeholder">Live Demo</span>
+            <span className="card-btn btn-placeholder">Demo Soon</span>
           )}
           {CodeLink ? (
-            <a href={CodeLink} className="btn" target="_blank" rel="noreferrer">
-              Source Code
+            <a
+              href={CodeLink}
+              className="card-btn btn-code"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Source
             </a>
           ) : (
-            <span className="btn btn-placeholder">Source Code</span>
+            <span className="card-btn btn-placeholder">Code</span>
           )}
         </div>
       </div>

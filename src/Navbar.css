@@ -1,87 +1,177 @@
+/* ==========================================================================
+   NAVBAR COMPONENT STYLES
+   Editorial Frosted Glass & Porsche Velvet Green Accents
+   ========================================================================== */
+
 #nav {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(5, 5, 5, 0.75);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(37, 61, 41, 0.08);
+  box-shadow: 0 4px 24px rgba(20, 32, 23, 0.03);
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .navMain {
   max-width: 1200px;
   margin: auto;
-  height: 70px;
+  height: 72px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.8rem;
+  padding: 0 2rem;
+}
+
+/* Brand Name */
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.brand:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
 }
 
 .brand p {
-  font-size: 1.2rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.28rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
-  color: var(--accent);
+  letter-spacing: -0.02em;
+  color: var(--porsche-green-deep);
 }
 
+/* Navigation Links */
 .listcount ul {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 2.2rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .listcount ul li a {
-  color: var(--accent);
+  position: relative;
+  font-family: var(--font-main);
+  color: var(--text-body);
   text-decoration: none;
-  font-weight: 500;
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.4rem 0;
   transition: color 0.25s ease;
 }
 
-.listcount ul li a:hover {
-  color: var(--accent-strong);
+.listcount ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--porsche-green);
+  border-radius: 999px;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.listcount ul li a:hover {
+  color: var(--porsche-green-deep);
+}
+
+.listcount ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger toggle for mobile */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 5px;
-}
-.bar {
-  width: 24px;
-  height: 3px;
-  background: var(--accent-strong);
-  border-radius: 3px;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(37, 61, 41, 0.04);
+  border: 1px solid rgba(37, 61, 41, 0.08);
+  transition: background-color 0.2s ease;
 }
 
+.hamburger:hover {
+  background: rgba(37, 61, 41, 0.08);
+}
+
+.bar {
+  width: 22px;
+  height: 2px;
+  background: var(--porsche-green-deep);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Layout */
 @media (max-width: 768px) {
+  .navMain {
+    padding: 0 1.25rem;
+    height: 66px;
+  }
+
   .hamburger {
     display: flex;
   }
 
   .listcount {
     position: absolute;
-    top: 70px;
+    top: 66px;
     left: 0;
     width: 100%;
-    background: rgba(5, 5, 5, 0.95);
-    border-bottom: 1px solid var(--border-soft);
-    transform: translateY(-200%);
-    transition: transform 0.35s ease;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(37, 61, 41, 0.1);
+    box-shadow: 0 20px 40px rgba(20, 32, 23, 0.08);
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.3s ease;
   }
 
   .listcount.open {
     transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .listcount ul {
     flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-    gap: 1rem;
+    align-items: stretch;
+    padding: 1.4rem 1.5rem 1.8rem;
+    gap: 0.5rem;
+  }
+
+  .listcount ul li a {
+    display: block;
+    padding: 0.85rem 1.1rem;
+    font-size: 1.05rem;
+    border-radius: 0.75rem;
+    background: rgba(37, 61, 41, 0.03);
+    color: var(--porsche-green-deep);
+  }
+
+  .listcount ul li a:hover {
+    background: rgba(37, 61, 41, 0.08);
+  }
+
+  .listcount ul li a::after {
+    display: none;
   }
 }

@@ -1,0 +1,171 @@
+/* ==========================================================================
+   SWIPEABLE CARDS COMPONENT STYLES
+   Tactile 3D Papercraft Carousel with Native Touch & Mouse Drag
+   ========================================================================== */
+
+.swipeable-cards-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  outline: none;
+}
+
+/* Scrollable / Touch-Swipe Track */
+.swipeable-cards-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.75rem 0.5rem 1.25rem;
+  cursor: grab;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+
+.swipeable-cards-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.swipeable-cards-track.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+  scroll-snap-type: none; /* Prevents snap jitter during mouse drag */
+  scroll-behavior: auto;
+}
+
+/* Card Item Wrapper */
+.swipeable-card-item {
+  scroll-snap-align: center;
+  flex: 0 0 clamp(300px, 32vw, 360px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.swipeable-card-item > * {
+  height: 100%;
+}
+
+/* Controls Bar (Buttons + Dots + Counter) */
+.swipeable-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Tactile Arrow Navigation Buttons */
+.swipe-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(37, 61, 41, 0.14);
+  box-shadow: var(--shadow-carve), 0 4px 12px rgba(20, 32, 23, 0.04);
+  color: var(--porsche-green);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.swipe-nav-btn:hover:not(:disabled) {
+  background: #f7faf7;
+  border-color: var(--porsche-green);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(20, 32, 23, 0.08);
+  color: var(--porsche-green-deep);
+}
+
+.swipe-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Pagination Dots */
+.swipe-dots-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 0.5rem;
+}
+
+.swipe-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--sage-accent);
+  opacity: 0.35;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.swipe-dot:hover {
+  opacity: 0.7;
+}
+
+.swipe-dot.active {
+  width: 24px;
+  border-radius: 999px;
+  background: var(--porsche-green);
+  opacity: 1;
+}
+
+/* Counter Badge */
+.swipe-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.counter-current {
+  color: var(--porsche-green);
+}
+
+.counter-divider {
+  opacity: 0.4;
+}
+
+/* Responsive Card Widths */
+@media (max-width: 968px) {
+  .swipeable-card-item {
+    flex: 0 0 clamp(290px, 46vw, 360px);
+  }
+}
+
+@media (max-width: 600px) {
+  .swipeable-card-item {
+    flex: 0 0 clamp(270px, 85vw, 330px);
+  }
+
+  .swipe-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .swipe-dots-container {
+    gap: 6px;
+  }
+
+  .swipe-dot.active {
+    width: 20px;
+  }
+}

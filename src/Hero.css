@@ -1,94 +1,256 @@
+/* ==========================================================================
+   HERO SECTION STYLES
+   Clean Editorial Aesthetic with Tactile Papercraft Details
+   ========================================================================== */
+
 #hero {
-  background-color: rgba(0, 0, 0, 0.56);
-  display: flex;
-  min-height: 100vh;
+  position: relative;
+  min-height: calc(100vh - 72px);
   width: 100%;
-  padding: 5rem 5rem 2rem;
-  justify-content: space-around;
+  display: flex;
   align-items: center;
-  flex-wrap: wrap-reverse;
+  justify-content: center;
+  padding: 4rem clamp(1.25rem, 5vw, 3.5rem) 3.5rem;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Background architectural transparent watermark text (centered) */
+.hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 16vw, 14rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(37, 61, 41, 0.06);
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Content Column */
+.sec1 {
+  flex: 1;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
-.sec1,
-.sec2 {
+.intro {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: transparent;
 }
 
-.sec2 {
-  align-items: center;
+.hero-main-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--text-title);
+  line-height: 1.15;
 }
 
-#hero .intro {
+.name-highlight {
+  color: var(--porsche-green);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-divider-line {
+  width: 72px;
+  height: 3px;
+  background: var(--porsche-green);
+  border-radius: 999px;
+  margin: 1.15rem 0 1rem;
+}
+
+.hero-subtitle {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-main);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  color: var(--porsche-green-light);
+  letter-spacing: -0.01em;
+}
+
+.hero-description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
   max-width: 520px;
 }
 
+/* Call to Action Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Primary Button in Deep Porsche Velvet Green */
+.btn-primary {
+  background: var(--porsche-green) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--porsche-green-deep) !important;
+  box-shadow: 0 6px 18px rgba(37, 61, 41, 0.2) !important;
+  padding: 0.75rem 1.6rem !important;
+  font-weight: 600 !important;
+  border-radius: 999px !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-primary:hover {
+  background: var(--porsche-green-deep) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px rgba(37, 61, 41, 0.28) !important;
+}
+
+/* Secondary Button in Tactile Paper Carve */
+.btn-secondary {
+  background: #ffffff !important;
+  color: var(--porsche-green-deep) !important;
+  border: 1px solid rgba(37, 61, 41, 0.18) !important;
+  box-shadow: var(--shadow-carve), 0 4px 14px rgba(20, 32, 23, 0.04) !important;
+  padding: 0.75rem 1.6rem !important;
+  font-weight: 600 !important;
+  border-radius: 999px !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-secondary:hover {
+  background: #f7faf7 !important;
+  border-color: var(--porsche-green) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(20, 32, 23, 0.08) !important;
+}
+
+/* Right Visual Column */
+.sec2 {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Circular portrait frame with smooth dual-light paper carve halo */
+.circle {
+  width: 290px;
+  height: 290px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 7px;
+  box-shadow: var(--shadow-carve-deep),
+              0 20px 48px -12px rgba(20, 32, 23, 0.12),
+              0 0 0 1px rgba(37, 61, 41, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+}
+
+.circle:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: var(--shadow-carve-deep),
+              0 28px 60px -12px rgba(20, 32, 23, 0.18);
+}
+
 .hero-img {
-  height: 100%;
   width: 100%;
-  background-color: #fff;
+  height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  transform: scale(1);
+  background: #eef3ee;
 }
 
 .hero-img img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
-  object-position: center 55%;
+  object-position: center 38%;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-.buttons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.1rem;
-  justify-content: center;
+.circle:hover .hero-img img {
+  transform: scale(1.03);
 }
 
-#hero h1,
-#hero h3 {
-  margin: 0;
-  text-align: center;
-}
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 968px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2.5rem;
+  }
 
-#hero h1 {
-  color: var(--accent);
-  font-size: clamp(1.6rem, 3.5vw, 2.35rem);
-  letter-spacing: 0.02em;
-}
+  .sec1 {
+    align-items: center;
+  }
 
-#hero h3 {
-  margin-top: 0.45rem;
-  color: var(--text-muted);
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 500;
-}
+  .hero-divider-line {
+    margin: 1rem auto;
+  }
 
-.circle {
-  height: 270px;
-  width: 270px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle at 30% 20%, #d8e0d8, var(--accent));
-  padding: 4px;
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 768px) {
-  #hero {
-    padding: 5.25rem 1.1rem 2rem;
-    gap: 1rem;
+  .hero-actions {
+    justify-content: center;
   }
 
   .circle {
-    height: 235px;
-    width: 235px;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero {
+    padding: 2.8rem 1rem 2.5rem;
+  }
+
+  .circle {
+    width: 215px;
+    height: 215px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
   }
 }

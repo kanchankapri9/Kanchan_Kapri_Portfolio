@@ -1,47 +1,14 @@
 import "./Footer.css";
 
-const GOOGLE_PAY_ID = "kanchankapri@nyes";
-
+/**
+ * Footer Component
+ * -----------------------------------------------------------------------------
+ * Clean, minimal footer featuring social links and personal signature.
+ */
 function Footer() {
-  const handleCopyUpi = async () => {
-    try {
-      await navigator.clipboard.writeText(GOOGLE_PAY_ID);
-      alert("UPI ID copied: " + GOOGLE_PAY_ID);
-    } catch {
-      alert("UPI ID: " + GOOGLE_PAY_ID);
-    }
-  };
-
   return (
     <footer id="footer">
-      <div className="footer-wrap">
-        <div className="tea-badge" aria-hidden="true">
-          <svg viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="30" className="tea-bg" />
-            <ellipse cx="30" cy="34" rx="14" ry="10" className="tea-lemon" />
-            <path d="M22 34h16" className="tea-cut" />
-            <path d="M24 24c4-7 12-8 18-3" className="tea-steam" />
-            <path d="M18 43h26" className="tea-line" />
-          </svg>
-        </div>
-
-        <p className="footer-note">Buy me a lemon tea</p>
-
-        <div className="payment-box">
-          <p className="pay-motivation">
-            Support my journey, fuel more creative builds.
-          </p>
-          <div className="payment-actions">
-            <button
-              type="button"
-              className="pay-btn"
-              onClick={handleCopyUpi}
-            >
-              Copy UPI ID
-            </button>
-          </div>
-        </div>
-
+      <div className="footer-wrap paper-carve">
         <div className="footer-bottom">
           <div className="social-row">
             <a
@@ -84,7 +51,7 @@ function Footer() {
               </svg>
             </a>
           </div>
-          <p>Made with Kanchan&apos;s love.</p>
+          <p className="footer-sign">Made with Kanchan&apos;s love.</p>
         </div>
       </div>
     </footer>

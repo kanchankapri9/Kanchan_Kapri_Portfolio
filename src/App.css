@@ -1,31 +1,56 @@
+/* ==========================================================================
+   APP CONTAINER & SCROLL LAYOUT
+   ========================================================================== */
+
+/* Fixed Navbar container pinned to the top */
 .navBox {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
+  pointer-events: none;
 }
 
+.navBox > * {
+  pointer-events: auto;
+}
+
+/* Main scrollable body container */
 .heroBox {
-  height: 100dvh;
+  min-height: 100dvh;
   overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-top: 70px;
-  scroll-padding-top: 36px;
+  padding-top: 72px;
+  scroll-padding-top: 72px;
 }
 
-#about,
+/* Section anchor scroll targets */
+#hero,
 #skill,
 #project,
+#services,
+#about,
 #contact {
-  scroll-margin-top: 36px;
+  scroll-margin-top: 72px;
 }
 
+/* Custom modern scrollbar for clean white & sage theme */
 .heroBox::-webkit-scrollbar {
   width: 8px;
 }
 
+.heroBox::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .heroBox::-webkit-scrollbar-thumb {
-  background: rgba(145, 162, 145, 0.4);
-  border-radius: 100px;
+  background: rgba(37, 61, 41, 0.2);
+  border-radius: 999px;
+  border: 2px solid #f7faf7;
+}
+
+.heroBox::-webkit-scrollbar-thumb:hover {
+  background: var(--porsche-green);
 }

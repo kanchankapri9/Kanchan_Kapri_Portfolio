@@ -2,80 +2,65 @@ import "./project.css";
 import Card from "./Card";
 
 const projectsData = [
-
   {
-    imgSrc: "/Ai_Notes_Assistant.jpeg",
-    title: "AI Notes Assistant",
+    imgSrc: "/Android_Lucknow.png",
+    title: "Android Lucknow",
+    tag: "Community-Website",
     description:
-      "Built a notes assistant for Notes Specific Web-app customized Notes and quick revision Notes for students.",
-    demoLink: "https://ai-notes-assistant-i47e.onrender.com/",
-    codeLink: "https://github.com/kanchankapri9",
+      "Community website for Android Lucknow which is a community of android developers and enthusiasts <b> led by students for students </b>.",
+    demoLink: "https://android-lucknow-sage.vercel.app/",
+    codeLink: "https://github.com/kanchankapri9/Android-Lucknow",
+  },
+  {
+    imgSrc: "/theWomaniaStore.png",
+    title: "TheWomaniaStore",
+    tag: "Full-Stack Ecommerce",
+    description:
+      "Women's ecommerce web application featuring product discovery, cart state management, and a responsive checkout experience.",
+    demoLink: "https://the-womania-store-k12n.onrender.com/",
+    codeLink: "https://github.com/kanchankapri9/TheWomaniaStore",
+  },
+  {
+    imgSrc: "/MiniKashmirDairies.png",
+    title: "MiniKashmirDairies",
+    tag: "Hotel Booking",
+    description:
+      "Hotel listing and booking platform for Uttarakhand destinations with location filtering, room pricing, and intuitive navigation.",
+    demoLink: "https://mini-kashmir-dairies-1p5q.onrender.com/",
+    codeLink: "https://github.com/kanchankapri9/MiniKashmirDairies",
   },
   {
     imgSrc: "/Kautik_Bazar_Ecommerce.png",
     title: "KautikBazar",
+    tag: "Full-Stack Ecommerce",
     description:
-      "Developed a full stack ecommerce platform with product catalog, cart, authentication, and order management.",
+      "Full stack ecommerce platform equipped with product catalogs, user authentication, cart management, and order processing.",
     demoLink: "",
     codeLink: "https://github.com/kanchankapri9",
   },
-  {
-    imgSrc: "/Dl_Project.png",
-    title: "ML & DL Projects",
-    description:
-      "Implemented machine learning and deep learning projects including prediction, classification, and model evaluation tasks.",
-    demoLink: "",
-    codeLink: "https://github.com/kanchankapri9",
-  },
-  {
-    imgSrc: "/DSA_Project.png",
-    title: "DSA Problem Tracker",
-    description:
-      "Built a problem-tracking app to organize coding practice by topic, difficulty, and interview preparation progress.",
-    demoLink: "",
-    codeLink: "https://github.com/kanchankapri9",
-  },
-
-
-  {
-    imgSrc: "/theWomaniaStore.png",
-    title: "TheWomaniaStore",
-    description:
-      "Built a ecommerce web-app for women with product catalog, cart, authentication, and order management.",
-    demoLink: "https://the-womania-store-k12n.onrender.com/",
-    codeLink: "https://github.com/kanchankapri9/TheWomaniaStore",
-  },
-
-
-  {
-    imgSrc: "/MiniKashmirDairies.png",
-    title: "MiniKashmirDairies",
-    description:
-      "Built a Hotel listing web-app for  with locations specifically in uttarkhand and pricing to search hotel in the uttarkhand.",
-    demoLink: "https://mini-kashmir-dairies-1p5q.onrender.com/",
-    codeLink: "https://github.com/kanchankapri9/MiniKashmirDairies",
-  },
-
 ];
 
 function Projects() {
   return (
-    <div id="project">
-      <h1 className="lemon-title">Projects</h1>
-      <div className="cardcontainer">
-        {/* Data-driven rendering keeps cards easy to maintain */}
-        {projectsData.map((project) => (
-          <Card
-            key={project.title}
-            imgSrc={project.imgSrc}
-            title={project.title}
-            description={project.description}
-            DemoLink={project.demoLink}
-            CodeLink={project.codeLink}
-          />
-        ))}
+    <section id="project">
+      <div className="projects-container">
+        <h2 className="lemon-title">Projects</h2>
+
+        <div className="cardcontainer">
+          {projectsData.map((project) => (
+            <Card
+              key={project.title}
+              imgSrc={project.imgSrc}
+              title={project.title}
+              tag={project.tag}
+              description={project.description}
+              DemoLink={project.demoLink}
+              CodeLink={project.codeLink}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

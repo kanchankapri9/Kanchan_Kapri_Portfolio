@@ -1,0 +1,97 @@
+/* ==========================================================================
+   SECTION HEADER COMPONENT STYLES
+   Editorial Porsche & "RUTH" Paper Carve Architecture
+   ========================================================================== */
+
+.section-header-wrap {
+  width: 100%;
+  margin-bottom: 2.75rem;
+  position: relative;
+}
+
+.section-header-wrap.align-center {
+  text-align: center;
+}
+
+.section-header-wrap.align-center .section-meta-row {
+  justify-content: center;
+}
+
+.section-header-wrap.align-center .section-divider-line {
+  max-width: 140px;
+}
+
+/* Meta Row: Section Number, Badge, and Editorial Line */
+.section-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Number Tag with "RUTH" style 3D paper carve inset shadow */
+.section-number-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--porsche-green);
+  box-shadow: var(--shadow-carve), 0 2px 6px rgba(20, 32, 23, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+/* Uppercase category label */
+.section-badge-text {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--porsche-green);
+}
+
+/* Architectural horizontal divider rule */
+.section-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(37, 61, 41, 0.18) 0%, rgba(37, 61, 41, 0.02) 100%);
+  margin-left: 0.5rem;
+}
+
+/* Main Display Title */
+.section-main-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-title);
+  line-height: 1.15;
+}
+
+/* Title Accent Word in Velvet Forest Green */
+.title-accent-span {
+  color: var(--porsche-green);
+  display: inline-block;
+  position: relative;
+}
+
+/* Subtitle description */
+.section-sub-desc {
+  margin: 0.65rem 0 0;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 620px;
+}
+
+@media (max-width: 768px) {
+  .section-header-wrap {
+    margin-bottom: 2rem;
+  }
+}

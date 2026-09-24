@@ -1,13 +1,68 @@
+/* ==========================================================================
+   DESIGN SYSTEM: PORSCHE RACING GREEN & WHITE EDITORIAL PAPERCRAFT
+   --------------------------------------------------------------------------
+   Directly inspired by:
+   - Porsche Editorial Poster: Deep velvet moss/forest green (#243828) sharply
+     contrasted against gallery white (#FFFFFF) with architectural outlines
+     and minimalist pagination dots.
+   - "RUTH" Book Cover: Tactile 3D paper carve typography with realistic
+     dual-light inner ambient shadows.
+   - "LIVES" Editorial Cover: Layered depth, clean edges, and handwritten accents.
+   ========================================================================== */
+
 :root {
-  --bg-main: #050505;
-  --bg-elevated: #0d0d0d;
-  --text-main: #e2e8f0;
-  --text-muted: #a6b2c0;
-  --accent: rgb(145, 162, 145);
-  --accent-strong: #c5d1c5;
-  --border-soft: rgba(145, 162, 145, 0.25);
-  --lemon-fill: #f5de7a;
-  --lemon-outline: #1d1d1d;
+  /* ------------------------------------------------------------------------
+     1. COLOR PALETTE
+     ------------------------------------------------------------------------ */
+  /* Canvas & Backgrounds */
+  --bg-canvas: #f7faf7;                  /* Subtle porcelain mist canvas */
+  --bg-surface: #ffffff;                 /* Pure gallery white surface */
+  --bg-elevated: #eef3ee;                /* Soft sage-tinted white for depth */
+  
+  /* Porsche Velvet Forest Green (Signature Contrast Color) */
+  --porsche-green-deep: #1b2d1f;         /* Deepest midnight forest */
+  --porsche-green: #253d29;              /* Classic British racing / moss green */
+  --porsche-green-light: #35563b;        /* Luminous leaf green */
+  --porsche-green-soft: rgba(37, 61, 41, 0.08); /* Delicate sage wash */
+
+  /* Sage / Olive Accent Tones */
+  --sage-accent: #78997c;                /* Refined botanical sage */
+  --sage-light: #a3c2a7;                 /* Soft sage highlight */
+  --sage-glow: rgba(120, 153, 124, 0.25);
+  --sage-border: rgba(37, 61, 41, 0.12); /* Delicate 1px structural lines */
+
+  /* Architectural Typography Palette */
+  --text-title: #142017;                 /* Deep obsidian-green heading */
+  --text-body: #2d3b30;                  /* Rich slate-forest body */
+  --text-muted: #5a6e5f;                 /* Muted sage-slate for descriptions */
+  --text-light: #8fa193;                 /* Micro labels & pagination */
+
+  /* Legacy & Theme Variable Aliases (guarantees seamless contrast across components) */
+  --accent: var(--porsche-green);
+  --accent-strong: var(--porsche-green-deep);
+  --text-main: var(--text-title);
+  --border-soft: rgba(37, 61, 41, 0.12);
+  --lemon-title-color: var(--porsche-green-deep);
+
+  /* ------------------------------------------------------------------------
+     2. TACTILE SHADOWS & "RUTH" 3D PAPER CARVE
+     ------------------------------------------------------------------------ */
+  /* Tactile Paper Carve Inset Shadows (Image 1 "RUTH" inspired) */
+  --shadow-carve: inset 3px 3px 6px rgba(20, 32, 23, 0.07), inset -3px -3px 6px rgba(255, 255, 255, 0.95);
+  --shadow-carve-deep: inset 4px 4px 10px rgba(20, 32, 23, 0.1), inset -4px -4px 10px rgba(255, 255, 255, 0.95);
+  
+  /* Ambient Gallery Drop Shadows */
+  --shadow-ambient: 0 4px 16px rgba(20, 32, 23, 0.04);
+  --shadow-card: 0 16px 36px -10px rgba(20, 32, 23, 0.08), 0 4px 12px rgba(20, 32, 23, 0.03);
+  --shadow-hover: 0 24px 50px -12px rgba(20, 32, 23, 0.14), 0 8px 24px rgba(37, 61, 41, 0.08);
+
+  /* Glassmorphism Refraction */
+  --bg-glass: rgba(255, 255, 255, 0.82);
+  --border-glass: rgba(255, 255, 255, 0.95);
+
+  /* Typography Scales */
+  --font-main: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
 }
 
 *,
@@ -18,89 +73,142 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
   position: relative;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #030303;
-  color: var(--text-main);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-body);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
+/* --------------------------------------------------------------------------
+   LIVING AMBIENT CANVAS (Porsche Green & Gallery White Light Mesh)
+   Subtle botanical aura that drifts slowly behind content.
+   -------------------------------------------------------------------------- */
 body::before {
   content: "";
   position: fixed;
-  inset: -12px;
-  background-image: url("/Background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(3px);
-  transform: scale(1.02);
+  inset: 0;
+  background: 
+    radial-gradient(circle at 10% 18%, rgba(120, 153, 124, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 90% 25%, rgba(220, 235, 222, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 45% 85%, rgba(235, 245, 236, 0.65) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(37, 61, 41, 0.05) 0%, transparent 50%);
+  filter: blur(45px);
   z-index: -2;
-  /* Slow pan + zoom on background layer. This animates only the image layer,
-     so text/content stays sharp because they are rendered above this pseudo-element. */
-  animation: bgDrift 22s ease-in-out infinite alternate;
+  animation: meshDrift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes meshDrift {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  50% { transform: scale(1.03) translate3d(-1%, 1.2%, 0); }
+  100% { transform: scale(1.02) translate3d(1.2%, -0.8%, 0); }
 }
 
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(247, 250, 247, 0.7) 100%);
   z-index: -1;
-  /* Gentle dark-overlay pulse to add depth while preserving text readability. */
-  animation: overlayPulse 12s ease-in-out infinite;
+  pointer-events: none;
 }
 
 #root {
-  height: 100dvh;
+  min-height: 100dvh;
   position: relative;
   z-index: 0;
 }
 
+/* --------------------------------------------------------------------------
+   REUSABLE UTILITY CLASSES & EDUCATIONAL SNIPPETS
+   -------------------------------------------------------------------------- */
+
+/* 1. "RUTH" 3D Paper Carve Panel */
+.paper-carve {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-carve), var(--shadow-ambient);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+/* 2. Frosted Glass Pill Badge */
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1.15rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(20, 32, 23, 0.04);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-title);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(20, 32, 23, 0.08);
+  border-color: var(--sage-accent);
+}
+
+/* 3. Section Titles (.section-title & .lemon-title) */
+.section-title,
 .lemon-title {
-  color: var(--lemon-fill);
-  -webkit-text-stroke: 1px var(--lemon-outline);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12), 0 6px 18px rgba(245, 222, 122, 0.28);
+  margin: 0 auto 2.5rem;
+  width: fit-content;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--porsche-green-deep);
+  position: relative;
+  display: block;
 }
 
-/* Background movement keyframes:
-   slightly shifts X/Y and scale to create a cinematic living background. */
-@keyframes bgDrift {
-  0% {
-    transform: scale(1.02) translate3d(0, 0, 0);
-  }
-  50% {
-    transform: scale(1.05) translate3d(-0.8%, -0.6%, 0);
-  }
-  100% {
-    transform: scale(1.03) translate3d(0.7%, 0.5%, 0);
-  }
+.section-title::after,
+.lemon-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--porsche-green);
+  border-radius: 999px;
+  margin: 0.65rem auto 0;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Overlay pulse keyframes:
-   very small opacity change so it feels alive but not distracting. */
-@keyframes overlayPulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.92;
-  }
-  100% {
-    opacity: 1;
-  }
+.section-title:hover::after,
+.lemon-title:hover::after {
+  width: 100%;
 }
 
-/* Accessibility: reduce motion for users who prefer minimal animation. */
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  body::before,
-  body::after {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  body::before {
     animation: none;
   }
 }
-

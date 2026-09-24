@@ -1,36 +1,48 @@
+/* ==========================================================================
+   REUSABLE BUTTON COMPONENT STYLES
+   Tactile 3D Papercraft & Porsche Velvet Green Pill
+   ========================================================================== */
+
 .app-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 1rem;
-  border: 1px solid rgba(145, 162, 145, 0.55);
+  gap: 0.4rem;
+  padding: 0.65rem 1.35rem;
+  border: 1px solid rgba(37, 61, 41, 0.18);
   border-radius: 999px;
-  background: rgba(145, 162, 145, 0.15);
-  color: var(--accent-strong);
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  background: #ffffff;
+  color: var(--porsche-green-deep);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  box-shadow: var(--shadow-carve), 0 2px 6px rgba(20, 32, 23, 0.04);
 }
 
 .app-button:hover {
-  background: var(--accent);
-  color: #0b0f0b;
+  background: var(--porsche-green);
+  color: #ffffff;
+  border-color: var(--porsche-green-deep);
   transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 61, 41, 0.22);
 }
 
 .app-button:active {
   transform: translateY(0);
+  box-shadow: var(--shadow-carve);
 }
 
 /* Used in Hero section as primary actions */
 .hero-btn {
-  min-width: 125px;
+  min-width: 145px;
 }
 
 /* Used in Skill section as compact tags */
 .skill-btn {
-  padding: 0.5rem 0.9rem;
+  padding: 0.5rem 0.95rem;
+  font-size: 0.85rem;
 }

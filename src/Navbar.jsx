@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 
-
-
-// the logic for the hamburger menu is implemented in this component. It uses useState to manage the open/close state of the menu, and useEffect to handle clicks outside the menu and the Escape key to close it. The menu items are rendered as a list, and clicking on any item will close the menu.
+/**
+ * Navbar Component
+ * -----------------------------------------------------------------------------
+ * Responsive navigation bar with mobile toggle menu and backdrop blur.
+ * Nav items: Skills, Projects, Services, Contact.
+ */
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
@@ -41,11 +44,12 @@ function Navbar() {
   return (
     <nav id="nav" ref={navRef}>
       <div className="navMain">
-        <div className="brand">
+        <a href="#hero" className="brand" onClick={closeMenu} aria-label="Go to home">
           <p>Kanchan Kapri</p>
-        </div>
-        {/* Hamburger Icon */}
-        <div className="hamburger" onClick={toggleMenu}>
+        </a>
+
+        {/* Mobile Hamburger Icon */}
+        <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation menu">
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
@@ -55,13 +59,13 @@ function Navbar() {
         <div className={`listcount ${isOpen ? "open" : ""}`}>
           <ul>
             <li>
-              <a href="#about" onClick={closeMenu}>About</a>
-            </li>
-            <li>
               <a href="#skill" onClick={closeMenu}>Skills</a>
             </li>
             <li>
               <a href="#project" onClick={closeMenu}>Projects</a>
+            </li>
+            <li>
+              <a href="#services" onClick={closeMenu}>Services</a>
             </li>
             <li>
               <a href="#contact" onClick={closeMenu}>Contact</a>

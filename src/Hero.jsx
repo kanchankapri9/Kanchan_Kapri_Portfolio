@@ -1,47 +1,61 @@
-// whole component in a Functional Component style
 import "./Hero.css";
-import Button from "./button"; //html tag
+import Button from "./button";
+
 function Hero() {
   const heroLinks = {
     resume: "/Kanchan_Kapri_Resume.pdf",
+    projects: "#project",
     github: "https://github.com/kanchankapri9",
   };
 
   return (
-    <div id="hero">
-      <div className="sec1">
-        <div className="intro">
-          <h1 className="lemon-title">Hey, I am Kanchan Kapri</h1>
-          <h3>BCA (DS & AI) Student | Sigma 8.0 </h3>
-        </div>
-
-        <div className="buttons">
-          <Button
-            name="Hire Me"
-            classN="hero-btn"
-            href={heroLinks.resume}
-            target="_blank"
-            rel="noreferrer"
-          />
-          <Button
-            name="Projects"
-            classN="hero-btn"
-            href={heroLinks.github}
-            target="_blank"
-            rel="noreferrer"
-          />
-        </div>
+    <section id="hero">
+      {/* Background architectural transparent watermark text */}
+      <div className="hero-watermark" aria-hidden="true">
+        KANCHAN
       </div>
 
-      <div className="sec2">
-        <div className="circle">
-          <div className="hero-img">
-            <img src="/Suit_Pick_facing_front.jpeg" alt="Kanchan Kapri" />
+      <div className="hero-container">
+        <div className="sec1">
+          <div className="intro">
+            <h1 className="hero-main-title">
+              Hey, I am <span className="name-highlight">Kanchan Kapri</span>
+            </h1>
+            <div className="hero-divider-line" aria-hidden="true"></div>
+            <h3 className="hero-subtitle">
+              BCA (DS & AI) Student | Full-Stack Developer
+            </h3>
+            <p className="hero-description">
+              Passionate about building clean web applications, solving algorithmic problems, and developing machine learning solutions.
+            </p>
+          </div>
+
+          <div className="hero-actions">
+            <Button
+              name="Hire Me"
+              classN="hero-btn btn-primary"
+              href={heroLinks.resume}
+              target="_blank"
+              rel="noreferrer"
+            />
+            <Button
+              name="Projects"
+              classN="hero-btn btn-secondary"
+              href={heroLinks.projects}
+            />
+          </div>
+        </div>
+
+        <div className="sec2">
+          <div className="circle">
+            <div className="hero-img">
+              <img src="/Suit_Pick_facing_front.jpeg" alt="Kanchan Kapri" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-export default Hero; // export the component to use in other files
+export default Hero;
