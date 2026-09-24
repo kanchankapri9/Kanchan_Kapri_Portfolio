@@ -21,13 +21,13 @@ const projectsData = [
     codeLink: "https://github.com/kanchankapri9/TheWomaniaStore",
   },
   {
-    imgSrc: "/MiniKashmirDairies.png",
+    imgSrc: "/Mini_Kashmir_Dairies.png",
     title: "MiniKashmirDairies",
     tag: "Hotel Booking",
     description:
       "Hotel listing and booking platform for Uttarakhand destinations with location filtering, room pricing, and intuitive navigation.",
-    demoLink: "https://mini-kashmir-dairies-1p5q.onrender.com/",
-    codeLink: "https://github.com/kanchankapri9/MiniKashmirDairies",
+    demoLink: "",
+    codeLink: "https://github.com/kanchankapri9/Mini-Kashmir-Dairies",
   },
   {
     imgSrc: "/Kautik_Bazar_Ecommerce.png",
