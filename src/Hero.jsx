@@ -10,16 +10,11 @@ function Hero() {
 
   return (
     <section id="hero">
-      {/* Background architectural transparent watermark text */}
-      <div className="hero-watermark" aria-hidden="true">
-        KANCHAN
-      </div>
-
       <div className="hero-container">
         <div className="sec1">
           <div className="intro">
             <h1 className="hero-main-title">
-              Hey, I am <span className="name-highlight">Kanchan Kapri</span>
+              Hey, I am <span className="name-highlight">Kanchan </span>
             </h1>
             <div className="hero-divider-line" aria-hidden="true"></div>
             <h3 className="hero-subtitle">
